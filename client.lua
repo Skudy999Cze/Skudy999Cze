@@ -16,7 +16,7 @@ Config.WheelBones = {
     {name = 'wheel_rr', index = 5}
 }
 
-ESX = exports['es_extended']:getSharedObject()
+local ESX = exports['es_extended']:getSharedObject()
 local stolenWheels = {}
 
 RegisterNetEvent('carTheft:stealWheel')
@@ -45,7 +45,7 @@ AddEventHandler('carTheft:stealWheel', function()
                         stolenWheels[vehicleId][wheelData.index] = true
 
                         ClearPedTasksImmediately(playerPed)
-                        TriggerServerEvent('carTheft:addItem', 'stolen_wheel')
+                        TriggerServerEvent('carTheft:addItem', 'wheel')
                         TriggerServerEvent('carTheft:notifyPlayers', NetworkGetNetworkIdFromEntity(vehicle), wheelData.index)
                         ESX.ShowNotification('Kolo bylo ukradeno!')
 
@@ -110,7 +110,7 @@ AddEventHandler('carTheft:installWheel', function()
                         stolenWheels[vehicleId][wheelData.index] = nil
 
                         ClearPedTasksImmediately(playerPed)
-                        TriggerServerEvent('carTheft:removeItem', 'stolen_wheel')
+                        TriggerServerEvent('carTheft:removeItem', 'wheel')
                         TriggerServerEvent('carTheft:notifyPlayers', NetworkGetNetworkIdFromEntity(vehicle), wheelData.index, true)
                         ESX.ShowNotification('Kolo bylo nainstalováno!')
                         return

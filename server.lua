@@ -1,6 +1,6 @@
 -- server.lua
 
-ESX = exports['es_extended']:getSharedObject()
+local ESX = exports['es_extended']:getSharedObject()
 
 RegisterServerEvent('carTheft:addItem')
 AddEventHandler('carTheft:addItem', function(itemName)
